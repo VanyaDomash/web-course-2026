@@ -1,0 +1,294 @@
+/* 1. Сброс */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, -apple-system, sans-serif;
+  color: #1e293b;
+  background-color: #f8fafc;
+  line-height: 1.5;
+}
+
+/* Крупная сетка страницы — CSS Grid */
+.page-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 40px;
+  padding: 0 16px 32px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* 2. Шапка (Flexbox внутри) */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+/* Бургер-кнопка для мобилок (от 44px) */
+.burger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 44px;
+  height: 44px;
+  padding: 12px 10px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.burger-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #1e293b;
+}
+
+.nav {
+  display: none;
+}
+
+/* 3. Hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.hero-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.hero-desc {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.hero-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Кнопка */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 20px;
+  background-color: #2563eb;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* 4. Сетка карточек — CSS Grid */
+.catalog {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 колонка на мобильном */
+  gap: 16px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.card-desc {
+  font-size: 0.95rem;
+  color: #64748b;
+}
+
+/* 5. Форма */
+.order-section {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-input,
+.form-textarea {
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:hover,
+.form-textarea:hover {
+  border-color: #94a3b8;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* 6. Футер */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.footer-link {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+/* 7. Планшет (от 768px) */
+@media (min-width: 768px) {
+  .page-layout {
+    padding: 0 32px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  .hero-img {
+    height: 260px;
+  }
+
+  /* 2 колонки на планшете */
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 8. Десктоп (от 1200px) */
+@media (min-width: 1200px) {
+  .page-layout {
+    row-gap: 60px;
+  }
+
+  .burger-menu {
+    display: none;
+  }
+
+  .nav {
+    display: block;
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: #1e293b;
+    font-weight: 500;
+  }
+
+  .nav-link:hover {
+    color: #2563eb;
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+  }
+
+  /* 4 колонки в ряд на десктопе */
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
