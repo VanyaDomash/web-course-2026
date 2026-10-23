@@ -1,0 +1,241 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  line-height: 1.5;
+  padding: 32px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.todo-app {
+  width: 100%;
+  max-width: 540px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.app-header {
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 12px;
+}
+
+.app-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.app-subtitle {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* Форма добавления */
+.todo-form {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.input-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.todo-input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.todo-input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.todo-input.input-error {
+  border-color: #ef4444;
+}
+
+.error-message {
+  display: none;
+  font-size: 0.8rem;
+  color: #ef4444;
+  margin-top: 4px;
+}
+
+.error-message.visible {
+  display: block;
+}
+
+.btn {
+  min-height: 44px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-add {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.btn-add:hover {
+  background-color: #1d4ed8;
+}
+
+/* Кнопки фильтрации */
+.filter-panel {
+  display: flex;
+  gap: 8px;
+  background-color: #f8fafc;
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.btn-filter {
+  flex: 1;
+  min-height: 36px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-filter:hover {
+  color: #0f172a;
+}
+
+.btn-filter.active {
+  background-color: #ffffff;
+  color: #2563eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Список задач */
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  gap: 12px;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.todo-item:hover {
+  border-color: #cbd5e1;
+}
+
+.todo-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  cursor: pointer;
+  user-select: none;
+}
+
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #2563eb;
+}
+
+.todo-text {
+  font-size: 0.95rem;
+  color: #1e293b;
+  word-break: break-word;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+
+/* Выполненная задача */
+.todo-item.completed {
+  background-color: #f8fafc;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+
+/* Кнопка удаления */
+.btn-delete {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.25rem;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.btn-delete:hover {
+  color: #ef4444;
+  background-color: #fee2e2;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 24px 0;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+/* Подвал */
+.app-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #64748b;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 12px;
+}

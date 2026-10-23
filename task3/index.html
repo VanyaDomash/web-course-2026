@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List — Лабораторная работа №3</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <main class="todo-app">
+    <header class="app-header">
+      <h1 class="app-title">Список задач</h1>
+      <p class="app-subtitle">Лабораторная работа №3 (DOM & Events)</p>
+    </header>
+
+    <!-- Форма ввода новой задачи -->
+    <form class="todo-form" id="todo-form">
+      <div class="input-wrapper">
+        <input 
+          type="text" 
+          id="todo-input" 
+          class="todo-input" 
+          placeholder="Что нужно сделать?" 
+          autocomplete="off"
+        >
+        <span class="error-message" id="error-message">Введите текст задачи</span>
+      </div>
+      <button type="submit" class="btn btn-add" id="add-btn">Добавить</button>
+    </form>
+
+    <!-- Панель фильтров -->
+    <nav class="filter-panel" aria-label="Фильтры задач">
+      <button type="button" class="btn-filter active" data-filter="all">Все</button>
+      <button type="button" class="btn-filter" data-filter="active">Активные</button>
+      <button type="button" class="btn-filter" data-filter="completed">Завершённые</button>
+    </nav>
+
+    <!-- Контейнер для динамического списка задач -->
+    <ul class="todo-list" id="todo-list"></ul>
+
+    <!-- Подвал приложения со счётчиком -->
+    <footer class="app-footer">
+      <span id="items-left">Осталось задач: 0</span>
+    </footer>
+  </main>
+
+</body>
+</html>
