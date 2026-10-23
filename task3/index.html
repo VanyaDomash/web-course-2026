@@ -11,7 +11,7 @@
 
   <main class="todo-app">
     <header class="app-header">
-      <h1 class="app-title">Список задач</h1>
+      <h1 class="app-title">Менеджер задач</h1>
       <p class="app-subtitle">Лабораторная работа №3 (DOM & Events)</p>
     </header>
 
@@ -22,7 +22,7 @@
           type="text" 
           id="todo-input" 
           class="todo-input" 
-          placeholder="Что нужно сделать?" 
+          placeholder="Запланируйте задачу..." 
           autocomplete="off"
         >
         <span class="error-message" id="error-message">Введите текст задачи</span>
@@ -33,16 +33,17 @@
     <!-- Панель фильтров -->
     <nav class="filter-panel" aria-label="Фильтры задач">
       <button type="button" class="btn-filter active" data-filter="all">Все</button>
-      <button type="button" class="btn-filter" data-filter="active">Активные</button>
+      <button type="button" class="btn-filter" data-filter="active">В процессе</button>
       <button type="button" class="btn-filter" data-filter="completed">Завершённые</button>
     </nav>
 
     <!-- Контейнер для динамического списка задач -->
     <ul class="todo-list" id="todo-list"></ul>
 
-    <!-- Подвал приложения со счётчиком -->
+    <!-- Подвал со счётчиками -->
     <footer class="app-footer">
-      <span id="items-left">Осталось задач: 0</span>
+      <span class="counter-badge counter-active" id="items-left">Осталось: 0</span>
+      <span class="counter-badge counter-completed" id="items-completed">Выполнено: 0</span>
     </footer>
   </main>
 

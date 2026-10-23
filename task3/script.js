@@ -1,18 +1,22 @@
 
 let todos = [];
+let currentFilter = 'all'; // 'all' | 'active' | 'completed'
 
-let currentFilter = 'all';
 
 const todoForm = document.getElementById('todo-form');
 const todoInput = document.getElementById('todo-input');
 const errorMessage = document.getElementById('error-message');
 const todoList = document.getElementById('todo-list');
 const itemsLeft = document.getElementById('items-left');
+const itemsCompleted = document.getElementById('items-completed');
 const filterButtons = document.querySelectorAll('.btn-filter');
+
+
 
 function addTodo(text) {
   const trimmedText = text.trim();
 
+  // Валидация на пустой ввод
   if (!trimmedText) {
     showError();
     return;
@@ -60,6 +64,7 @@ function setFilter(newFilter) {
   render();
 }
 
+
 function showError() {
   todoInput.classList.add('input-error');
   errorMessage.classList.add('visible');
@@ -71,19 +76,21 @@ function hideError() {
   errorMessage.classList.remove('visible');
 }
 
+
 function render() {
   todoList.innerHTML = '';
 
+  // Фильтрация для текущего вида
   const filteredTodos = todos.filter(todo => {
     if (currentFilter === 'active') return !todo.completed;
     if (currentFilter === 'completed') return todo.completed;
-    return true; // 'all'
+    return true;
   });
 
   if (filteredTodos.length === 0) {
     const emptyLi = document.createElement('li');
     emptyLi.className = 'empty-state';
-    emptyLi.textContent = todos.length === 0 ? 'Задач пока нет' : 'Нет задач в этой категории';
+    emptyLi.textContent = todos.length === 0 ? 'Задач пока нет' : 'В этой вкладке ничего нет';
     todoList.appendChild(emptyLi);
   } else {
     filteredTodos.forEach(todo => {
@@ -118,10 +125,13 @@ function render() {
     });
   }
 
-  // Обновляем счетчик активных задач
   const activeCount = todos.filter(t => !t.completed).length;
-  itemsLeft.textContent = `Осталось задач: ${activeCount}`;
+  const completedCount = todos.filter(t => t.completed).length;
+
+  itemsLeft.textContent = `Осталось: ${activeCount}`;
+  itemsCompleted.textContent = `Выполнено: ${completedCount}`;
 }
+
 
 todoForm.addEventListener('submit', (e) => {
   e.preventDefault();

@@ -5,42 +5,44 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: #f1f5f9;
-  color: #1e293b;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(circle at 20% 20%, #1e293b 0%, #0f172a 100%);
+  min-height: 100vh;
+  color: #e2e8f0;
   line-height: 1.5;
-  padding: 32px 16px;
+  padding: 40px 16px;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .todo-app {
   width: 100%;
-  max-width: 540px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e2e8f0;
-  padding: 24px;
+  max-width: 520px;
+  background-color: #1e293b;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 .app-header {
-  border-bottom: 1px solid #f1f5f9;
-  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 14px;
 }
 
 .app-title {
-  font-size: 1.6rem;
+  font-size: 1.65rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #f8fafc;
+  letter-spacing: -0.5px;
 }
 
 .app-subtitle {
   font-size: 0.85rem;
-  color: #64748b;
+  color: #94a3b8;
 }
 
 /* Форма добавления */
@@ -57,29 +59,38 @@ body {
 
 .todo-input {
   width: 100%;
-  min-height: 44px;
-  padding: 10px 14px;
-  border: 1.5px solid #cbd5e1;
-  border-radius: 8px;
-  font-size: 1rem;
+  min-height: 46px;
+  padding: 10px 16px;
+  background-color: #0f172a;
+  border: 1.5px solid #334155;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #f8fafc;
   font-family: inherit;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.todo-input::placeholder {
+  color: #64748b;
 }
 
 .todo-input:focus {
   outline: none;
-  border-color: #2563eb;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
 }
 
 .todo-input.input-error {
-  border-color: #ef4444;
+  border-color: #f43f5e;
+  box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.2);
 }
 
 .error-message {
   display: none;
   font-size: 0.8rem;
-  color: #ef4444;
-  margin-top: 4px;
+  color: #fb7185;
+  margin-top: 6px;
+  font-weight: 500;
 }
 
 .error-message.visible {
@@ -87,37 +98,38 @@ body {
 }
 
 .btn {
-  min-height: 44px;
-  padding: 0 18px;
+  min-height: 46px;
+  padding: 0 20px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: 600;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
 }
 
 .btn:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 .btn-add {
-  background-color: #2563eb;
+  background-color: #10b981;
   color: #ffffff;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
 }
 
 .btn-add:hover {
-  background-color: #1d4ed8;
+  background-color: #059669;
 }
 
-/* Кнопки фильтрации */
+/* Фильтры */
 .filter-panel {
   display: flex;
-  gap: 8px;
-  background-color: #f8fafc;
+  gap: 6px;
+  background-color: #0f172a;
   padding: 4px;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .btn-filter {
@@ -125,22 +137,22 @@ body {
   min-height: 36px;
   background: transparent;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #64748b;
+  color: #94a3b8;
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
+  transition: all 0.2s ease;
 }
 
 .btn-filter:hover {
-  color: #0f172a;
+  color: #f8fafc;
 }
 
 .btn-filter.active {
-  background-color: #ffffff;
-  color: #2563eb;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: #334155;
+  color: #34d399;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* Список задач */
@@ -148,25 +160,26 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   max-height: 380px;
   overflow-y: auto;
+  padding-right: 4px;
 }
 
 .todo-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 12px;
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  padding: 12px 14px;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
   gap: 12px;
-  transition: background-color 0.15s, border-color 0.15s;
+  transition: border-color 0.2s, background-color 0.2s;
 }
 
 .todo-item:hover {
-  border-color: #cbd5e1;
+  border-color: #475569;
 }
 
 .todo-content {
@@ -182,60 +195,77 @@ body {
   width: 20px;
   height: 20px;
   cursor: pointer;
-  accent-color: #2563eb;
+  accent-color: #10b981;
 }
 
 .todo-text {
   font-size: 0.95rem;
-  color: #1e293b;
+  color: #f1f5f9;
   word-break: break-word;
   transition: color 0.2s, text-decoration 0.2s;
 }
 
-/* Выполненная задача */
+/* Завершённая задача */
 .todo-item.completed {
-  background-color: #f8fafc;
+  background-color: rgba(15, 23, 42, 0.6);
+  border-color: rgba(255, 255, 255, 0.05);
 }
 
 .todo-item.completed .todo-text {
   text-decoration: line-through;
-  color: #94a3b8;
+  color: #64748b;
 }
 
 /* Кнопка удаления */
 .btn-delete {
   background: transparent;
   border: none;
-  color: #94a3b8;
-  font-size: 1.25rem;
+  color: #64748b;
+  font-size: 1.3rem;
   width: 32px;
   height: 32px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: color 0.2s, background-color 0.2s;
 }
 
 .btn-delete:hover {
-  color: #ef4444;
-  background-color: #fee2e2;
+  color: #fb7185;
+  background-color: rgba(244, 63, 94, 0.15);
 }
 
 .empty-state {
   text-align: center;
-  padding: 24px 0;
-  color: #94a3b8;
+  padding: 28px 0;
+  color: #64748b;
   font-size: 0.95rem;
 }
 
-/* Подвал */
+/* Подвал со счётчиками */
 .app-footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 16px;
   font-size: 0.85rem;
-  color: #64748b;
-  border-top: 1px solid #f1f5f9;
-  padding-top: 12px;
+}
+
+.counter-badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.counter-active {
+  background-color: rgba(148, 163, 184, 0.1);
+  color: #94a3b8;
+}
+
+.counter-completed {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
 }
