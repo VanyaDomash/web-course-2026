@@ -1,4 +1,6 @@
-
+/* ==========================================================================
+   0. СБРОС И БАЗОВЫЕ НАСТРОЙКИ (DARK FOOTBALL / ANALYTICS THEME)
+   ========================================================================== */
 *,
 *::before,
 *::after {
@@ -8,10 +10,10 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  color: #1e293b;
-  background-color: #f8fafc;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: #e2e8f0;
+  background-color: #0b0f19;
   overflow-x: hidden;
 }
 
@@ -55,10 +57,11 @@ ul {
 
 .section-title {
   font-size: 1.75rem;
-  font-weight: 700;
+  font-weight: 800;
   text-align: center;
   margin-bottom: 24px;
-  color: #0f172a;
+  color: #ffffff;
+  letter-spacing: -0.5px;
 }
 
 /* ==========================================================================
@@ -67,8 +70,9 @@ ul {
 .header-section {
   position: sticky;
   top: 0;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
+  background-color: rgba(11, 15, 25, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #1e293b;
   z-index: 1000;
 }
 
@@ -83,11 +87,15 @@ ul {
 .logo {
   font-size: 1.35rem;
   font-weight: 800;
-  color: #2563eb;
+  color: #ffffff;
   letter-spacing: -0.5px;
 }
 
-/* Скрываем сам элемент чекбокса */
+.logo-highlight {
+  color: #10b981; /* Электрический зеленый акцент */
+}
+
+/* Скрытый чекбокс-триггер */
 .burger-checkbox {
   position: absolute;
   opacity: 0;
@@ -111,7 +119,7 @@ ul {
   display: block;
   width: 100%;
   height: 3px;
-  background-color: #0f172a;
+  background-color: #10b981;
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -123,10 +131,10 @@ ul {
   top: 64px;
   left: 0;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #0f172a;
   padding: 24px 16px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid #1e293b;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .nav-list {
@@ -137,9 +145,9 @@ ul {
 }
 
 .nav-link {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #475569;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #94a3b8;
   min-height: 44px;
   display: flex;
   align-items: center;
@@ -147,15 +155,15 @@ ul {
 }
 
 .nav-link:hover {
-  color: #2563eb;
+  color: #10b981;
 }
 
-/* Открытие меню при клике на бургер */
+/* Открытие меню по клику на бургер */
 .burger-checkbox:checked ~ .nav-menu {
   display: block;
 }
 
-/* Анимация превращения 3 полосок в крестик при открытии */
+/* Анимация превращения 3 полосок в крестик */
 .burger-checkbox:checked ~ .burger-btn .burger-line:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
@@ -172,8 +180,9 @@ ul {
    3. ГЕРОЙ-СЕКЦИЯ (HERO)
    ========================================================================== */
 .hero-section {
-  padding: 48px 0;
-  background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%);
+  padding: 56px 0;
+  background: radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.12) 0%, rgba(11, 15, 25, 0.8) 75%);
+  border-bottom: 1px solid #1e293b;
 }
 
 .hero-container {
@@ -184,43 +193,58 @@ ul {
   gap: 20px;
 }
 
+.hero-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #10b981;
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .hero-title {
-  font-size: 2rem;
+  font-size: 2.1rem;
   font-weight: 800;
-  line-height: 1.2;
-  color: #0f172a;
+  line-height: 1.25;
+  color: #ffffff;
 }
 
 .hero-desc {
   font-size: 1rem;
-  color: #64748b;
-  max-width: 520px;
+  color: #94a3b8;
+  max-width: 580px;
 }
 
 .hero-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 180px;
+  min-width: 200px;
   min-height: 48px;
-  padding: 12px 24px;
-  background-color: #2563eb;
-  color: #ffffff;
-  font-weight: 600;
+  padding: 12px 28px;
+  background-color: #10b981;
+  color: #0b0f19;
+  font-weight: 700;
   border-radius: 8px;
-  transition: background-color 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .hero-btn:hover {
-  background-color: #1d4ed8;
+  background-color: #059669;
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
 }
 
 /* ==========================================================================
-   4. КАРТОЧКИ УСЛУГ (CSS GRID ДЛЯ СЕТКИ, FLEXBOX ДЛЯ КАРТОЧКИ)
+   4. КАРТОЧКИ МОДУЛЕЙ (CSS GRID ДЛЯ СЕТКИ, FLEXBOX ДЛЯ КАРТОЧЕК)
    ========================================================================== */
 .services-section {
-  padding: 56px 0;
+  padding: 60px 0;
 }
 
 .services-grid {
@@ -233,18 +257,19 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #ffffff;
-  padding: 24px;
+  background-color: #131b2e;
+  padding: 28px;
   border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #1e293b;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Плавный переход и увеличение карточки по требованию п.6 */
+/* Плавный переход и масштабирование по требованию п.6 */
 .service-card:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.1);
+  border-color: #10b981;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15);
 }
 
 .card-icon {
@@ -253,28 +278,30 @@ ul {
 }
 
 .card-title {
-  font-size: 1.25rem;
-  margin-bottom: 8px;
-  color: #0f172a;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .card-text {
   font-size: 0.95rem;
-  color: #64748b;
-  margin-bottom: 20px;
+  color: #94a3b8;
+  margin-bottom: 24px;
   flex-grow: 1;
 }
 
 .card-link {
   font-weight: 600;
-  color: #2563eb;
+  color: #10b981;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: gap 0.2s ease;
+  transition: gap 0.2s ease, color 0.2s ease;
 }
 
 .card-link:hover {
+  color: #34d399;
   gap: 10px;
 }
 
@@ -282,18 +309,19 @@ ul {
    5. ФОРМА ОБРАТНОЙ СВЯЗИ
    ========================================================================== */
 .contact-section {
-  padding: 56px 0;
-  background-color: #f1f5f9;
+  padding: 60px 0;
+  background-color: #0e1424;
+  border-top: 1px solid #1e293b;
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  background-color: #ffffff;
+  gap: 20px;
+  background-color: #131b2e;
   padding: 28px 20px;
   border-radius: 12px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #1e293b;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -301,44 +329,49 @@ ul {
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .form-label {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #334155;
+  color: #cbd5e1;
 }
 
 .form-input,
 .form-textarea {
   width: 100%;
   min-height: 44px;
-  padding: 10px 14px;
-  border: 1.5px solid #cbd5e1;
+  padding: 12px 16px;
+  border: 1.5px solid #2d3b55;
   border-radius: 8px;
   font-size: 1rem;
-  color: #0f172a;
-  background-color: #ffffff;
+  color: #ffffff;
+  background-color: #0b0f19;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #64748b;
+}
+
 .form-textarea {
-  min-height: 110px;
+  min-height: 120px;
   resize: vertical;
 }
 
-/* Состояния :hover и :focus по требованию п.5 */
+/* Состояния :hover и :focus */
 .form-input:hover,
 .form-textarea:hover {
-  border-color: #94a3b8;
+  border-color: #475569;
 }
 
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
 }
 
 .btn-submit {
@@ -347,34 +380,35 @@ ul {
   justify-content: center;
   min-height: 48px;
   padding: 12px 24px;
-  background-color: #2563eb;
-  color: #ffffff;
+  background-color: #10b981;
+  color: #0b0f19;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .btn-submit:hover {
-  background-color: #1d4ed8;
+  background-color: #059669;
   transform: translateY(-1px);
 }
 
 .btn-submit:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.4);
 }
 
 /* ==========================================================================
    6. ФУТЕР
    ========================================================================== */
 .footer-section {
-  background-color: #0f172a;
-  color: #94a3b8;
+  background-color: #070a12;
+  color: #64748b;
   padding: 32px 0;
   text-align: center;
+  border-top: 1px solid #1e293b;
 }
 
 .footer-container {
@@ -388,14 +422,13 @@ ul {
   font-size: 0.9rem;
 }
 
-
 /* ==========================================================================
    7. ВТОРАЯ КОНТРОЛЬНАЯ ТОЧКА: ПЛАНШЕТ (768px – 1199px)
    ========================================================================== */
 @media (min-width: 768px) {
   .section-title {
-    font-size: 2.1rem;
-    margin-bottom: 32px;
+    font-size: 2.2rem;
+    margin-bottom: 36px;
   }
 
   /* Скрываем бургер-иконку */
@@ -416,7 +449,7 @@ ul {
 
   .nav-list {
     flex-direction: row;
-    gap: 24px;
+    gap: 28px;
   }
 
   .nav-link {
@@ -424,7 +457,7 @@ ul {
     min-height: auto;
   }
 
-  /* Сетка карточек: 2 колонки на планшете */
+  /* Сетка карточек: 2 колонки */
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
@@ -440,35 +473,34 @@ ul {
   }
 }
 
-
 /* ==========================================================================
    8. ТРЕТЬЯ КОНТРОЛЬНАЯ ТОЧКА: ДЕСКТОП (от 1200px)
    ========================================================================== */
 @media (min-width: 1200px) {
   .hero-section {
-    padding: 72px 0;
+    padding: 80px 0;
   }
 
   .hero-title {
-    font-size: 2.8rem;
+    font-size: 3rem;
   }
 
   .hero-desc {
     font-size: 1.15rem;
-    max-width: 650px;
+    max-width: 680px;
   }
 
-  /* Сетка карточек: 3 колонки на десктопе */
+  /* Сетка карточек: 3 колонки */
   .services-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
   }
 
   .services-section {
-    padding: 80px 0;
+    padding: 88px 0;
   }
 
   .contact-section {
-    padding: 80px 0;
+    padding: 88px 0;
   }
 }

@@ -3,33 +3,36 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Адаптивный лендинг — Услуги веб-разработки</title>
+  <title>FootyMetrics — Платформа футбольной аналитики и xG-скаутинга</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="page-layout">
     
+    <!-- ШАПКА С ИНТЕРАКТИВНЫМ БУРГЕРОМ НА ЧИСТОМ CSS -->
     <header class="header-section">
       <div class="container header-container">
-        <a href="#" class="logo">DevStudio</a>
+        <a href="#" class="logo">
+          <span class="logo-accent">⚡</span> Footy<span class="logo-highlight">Metrics</span>
+        </a>
 
         <!-- Скрытый чекбокс-триггер для меню -->
-        <input type="checkbox" id="burger-toggle" class="burger-checkbox" aria-label="Переключатель мобильного меню">
+        <input type="checkbox" id="burger-toggle" class="burger-checkbox" aria-label="Переключатель навигации">
 
-        <!-- Кнопка-бургер (label связан с checkbox) -->
-        <label for="burger-toggle" class="burger-btn" aria-label="Открыть навигационное меню">
+        <!-- Кнопка-гамбургер -->
+        <label for="burger-toggle" class="burger-btn" aria-label="Открыть меню">
           <span class="burger-line"></span>
           <span class="burger-line"></span>
           <span class="burger-line"></span>
         </label>
 
-        <!-- Выпадающее меню -->
+        <!-- Навигация -->
         <nav class="nav-menu">
           <ul class="nav-list">
             <li><a href="#hero" class="nav-link">Главная</a></li>
-            <li><a href="#services" class="nav-link">Услуги</a></li>
-            <li><a href="#contact" class="nav-link">Контакты</a></li>
+            <li><a href="#modules" class="nav-link">Модули данных</a></li>
+            <li><a href="#demo" class="nav-link">Запросить доступ</a></li>
           </ul>
         </nav>
       </div>
@@ -38,73 +41,74 @@
     <!-- ГЕРОЙ-СЕКЦИЯ (HERO) -->
     <section class="hero-section" id="hero">
       <div class="container hero-container">
-        <h1 class="hero-title">Современная веб-разработка под ключ</h1>
+        <div class="hero-badge">⚽ Big Data & AI в футболе</div>
+        <h1 class="hero-title">Умная футбольная аналитика нового поколения</h1>
         <p class="hero-desc">
-          Проектируем быстрые, адаптивные и доступные сайты для вашего бизнеса с чистым кодом и современными стандартами.
+          Комплексные метрики ожидаемых голов (xG), карты передач (xP), тепловые зоны давления (PPDA) и глубокий скаутинг игроков топ-5 европейских лиг в реальном времени.
         </p>
-        <a href="#contact" class="hero-btn">Оставить заявку</a>
+        <a href="#demo" class="hero-btn">Получить демо-доступ</a>
       </div>
     </section>
 
-    <!-- СЕКЦИЯ КАРТОЧЕК УСЛУГ -->
-    <section class="services-section" id="services">
+    <!-- СЕКЦИЯ АНАЛИТИЧЕСКИХ МОДУЛЕЙ -->
+    <section class="services-section" id="modules">
       <div class="container">
-        <h2 class="section-title">Наши услуги</h2>
+        <h2 class="section-title">Аналитические инструменты</h2>
         <div class="services-grid">
           
           <article class="service-card">
-            <div class="card-icon">💻</div>
-            <h3 class="card-title">Лендинги и промо-сайты</h3>
+            <div class="card-icon">🎯</div>
+            <h3 class="card-title">Модели xG и xGOT</h3>
             <p class="card-text">
-              Одностраничные сайты с высокой конверсией, продуманной типографикой и безупречной мобильной адаптацией.
+              Оценка качества созданных моментов и точности ударов с учётом позиции вратаря, плотности опеки и типа передачи.
             </p>
-            <a href="#contact" class="card-link">Подробнее &rarr;</a>
+            <a href="#demo" class="card-link">Исследовать метрику &rarr;</a>
           </article>
 
           <article class="service-card">
-            <div class="card-icon">⚡</div>
-            <h3 class="card-title">Оптимизация скорости</h3>
+            <div class="card-icon">📊</div>
+            <h3 class="card-title">Радары и скаутинг игроков</h3>
             <p class="card-text">
-              Ускорение загрузки страниц, сжатие ассетов и повышение баллов в Google PageSpeed Insights.
+              Сравнение перцентилей футболистов по 45 параметрам: прогрессивные передачи, отборы в финальной трети и успешный дриблинг.
             </p>
-            <a href="#contact" class="card-link">Подробнее &rarr;</a>
+            <a href="#demo" class="card-link">Исследовать метрику &rarr;</a>
           </article>
 
           <article class="service-card">
-            <div class="card-icon">📱</div>
-            <h3 class="card-title">Адаптивная вёрстка</h3>
+            <div class="card-icon">🔥</div>
+            <h3 class="card-title">Тепловые карты и прессинг</h3>
             <p class="card-text">
-              Кроссбраузерная вёрстка по макетам Figma на CSS Grid и Flexbox по методологии Mobile First.
+              Визуализация компактности командных блоков, интенсивности прессинга (PPDA) и направлений продвижения мяча (Field Tilt).
             </p>
-            <a href="#contact" class="card-link">Подробнее &rarr;</a>
+            <a href="#demo" class="card-link">Исследовать метрику &rarr;</a>
           </article>
 
         </div>
       </div>
     </section>
 
-    <!-- СЕКЦИЯ ФОРМЫ ОБРАТНОЙ СВЯЗИ -->
-    <section class="contact-section" id="contact">
+    <!-- СЕКЦИЯ ЗАПРОСА ДЕМО-ДОСТУПА (ФОРМА) -->
+    <section class="contact-section" id="demo">
       <div class="container">
-        <h2 class="section-title">Связаться с нами</h2>
+        <h2 class="section-title">Запросить доступ для клуба или скаута</h2>
         
         <form class="contact-form">
           <div class="form-group">
-            <label for="name" class="form-label">Ваше имя</label>
-            <input type="text" id="name" name="name" class="form-input" placeholder="Иван Иванов" required>
+            <label for="name" class="form-label">Ваше имя / Должность</label>
+            <input type="text" id="name" name="name" class="form-input" placeholder="Александр (Спортивный аналитик)" required>
           </div>
 
           <div class="form-group">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" id="email" name="email" class="form-input" placeholder="ivan@example.com" required>
+            <label for="email" class="form-label">Рабочий Email</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="analyst@footballclub.com" required>
           </div>
 
           <div class="form-group">
-            <label for="message" class="form-label">Сообщение</label>
-            <textarea id="message" name="message" class="form-textarea" placeholder="Расскажите о вашей задаче..." required></textarea>
+            <label for="message" class="form-label">Интересующие лиги и задачи</label>
+            <textarea id="message" name="message" class="form-textarea" placeholder="Укажите лиги (РПЛ, АПЛ, Серия А) или необходимые API-потоки данных..." required></textarea>
           </div>
 
-          <button type="submit" class="btn-submit">Отправить сообщение</button>
+          <button type="submit" class="btn-submit">Отправить заявку на платформу</button>
         </form>
       </div>
     </section>
@@ -112,7 +116,7 @@
     <!-- ПОДВАЛ (FOOTER) -->
     <footer class="footer-section">
       <div class="container footer-container">
-        <p class="footer-text">&copy; 2026 DevStudio. Учебный проект дисциплины «JS и веб-разработка».</p>
+        <p class="footer-text">&copy; 2026 FootyMetrics Analytics Hub. Все права защищены.</p>
         <p class="footer-text">Лабораторная работа №2</p>
       </div>
     </footer>
