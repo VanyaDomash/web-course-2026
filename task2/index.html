@@ -1,101 +1,123 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Магнитные отвёртки — MagnaGrip</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Адаптивный лендинг — Услуги веб-разработки</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-layout">
+<body>
 
-  <!-- Шапка -->
-  <header class="header">
-    <div class="logo">MagnaGrip</div>
+  <div class="page-layout">
+    
+    <header class="header-section">
+      <div class="container header-container">
+        <a href="#" class="logo">DevStudio</a>
 
-    <!-- Бургер для экранов до 767px -->
-    <button class="burger-menu" aria-label="Открыть меню">
-      <span class="burger-line"></span>
-      <span class="burger-line"></span>
-      <span class="burger-line"></span>
-    </button>
+        <!-- Скрытый чекбокс-триггер для меню -->
+        <input type="checkbox" id="burger-toggle" class="burger-checkbox" aria-label="Переключатель мобильного меню">
 
-    <!-- Меню для десктопа -->
-    <nav class="nav">
-      <ul class="nav-list">
-        <li><a href="#catalog" class="nav-link">Каталог</a></li>
-        <li><a href="#order" class="nav-link">Заказ</a></li>
-      </ul>
-    </nav>
-  </header>
+        <!-- Кнопка-бургер (label связан с checkbox) -->
+        <label for="burger-toggle" class="burger-btn" aria-label="Открыть навигационное меню">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </label>
 
-  <!-- Главный экран -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1 class="hero-title">Профессиональные магнитные отвёртки</h1>
-      <p class="hero-desc">
-        Надёжный инструмент с усиленным неодимовым магнитом для точных работ и сборки электроники.
-      </p>
-      <a href="#order" class="btn btn-primary">Заказать отвёртку</a>
-    </div>
-    <div class="hero-visual">
-      <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=700&q=80" alt="Отвёртка" class="hero-img">
-    </div>
-  </section>
-
-  <!-- Каталог / 4 карточки -->
-  <section id="catalog" class="catalog">
-    <h2 class="section-title">Каталог моделей</h2>
-    <div class="cards-grid">
-      <article class="card">
-        <h3 class="card-title">Прецизионная Mini</h3>
-        <p class="card-desc">Для ремонта смартфонов, очков и мелкой электроники.</p>
-      </article>
-
-      <article class="card">
-        <h3 class="card-title">Ударная Pro</h3>
-        <p class="card-desc">С усиленным стержнем для силового монтажа и авторабот.</p>
-      </article>
-
-      <article class="card">
-        <h3 class="card-title">Антистатическая ESD</h3>
-        <p class="card-desc">Безопасная работа с материнскими платами и чипами.</p>
-      </article>
-
-      <article class="card">
-        <h3 class="card-title">Кастомный набор</h3>
-        <p class="card-desc">Индивидуальный подбор бит и формы рукоятки.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- Форма заказа -->
-  <section id="order" class="order-section">
-    <h2 class="section-title">Оставить заявку</h2>
-    <form class="order-form" onsubmit="return false;">
-      <div class="form-group">
-        <label for="name" class="form-label">Ваше имя</label>
-        <input type="text" id="name" class="form-input" placeholder="Иван" required>
+        <!-- Выпадающее меню -->
+        <nav class="nav-menu">
+          <ul class="nav-list">
+            <li><a href="#hero" class="nav-link">Главная</a></li>
+            <li><a href="#services" class="nav-link">Услуги</a></li>
+            <li><a href="#contact" class="nav-link">Контакты</a></li>
+          </ul>
+        </nav>
       </div>
+    </header>
 
-      <div class="form-group">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" id="email" class="form-input" placeholder="ivan@example.com" required>
+    <!-- ГЕРОЙ-СЕКЦИЯ (HERO) -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <h1 class="hero-title">Современная веб-разработка под ключ</h1>
+        <p class="hero-desc">
+          Проектируем быстрые, адаптивные и доступные сайты для вашего бизнеса с чистым кодом и современными стандартами.
+        </p>
+        <a href="#contact" class="hero-btn">Оставить заявку</a>
       </div>
+    </section>
 
-      <div class="form-group">
-        <label for="message" class="form-label">Сообщение</label>
-        <textarea id="message" class="form-textarea" rows="3" placeholder="Какая модель вам нужна?" required></textarea>
+    <!-- СЕКЦИЯ КАРТОЧЕК УСЛУГ -->
+    <section class="services-section" id="services">
+      <div class="container">
+        <h2 class="section-title">Наши услуги</h2>
+        <div class="services-grid">
+          
+          <article class="service-card">
+            <div class="card-icon">💻</div>
+            <h3 class="card-title">Лендинги и промо-сайты</h3>
+            <p class="card-text">
+              Одностраничные сайты с высокой конверсией, продуманной типографикой и безупречной мобильной адаптацией.
+            </p>
+            <a href="#contact" class="card-link">Подробнее &rarr;</a>
+          </article>
+
+          <article class="service-card">
+            <div class="card-icon">⚡</div>
+            <h3 class="card-title">Оптимизация скорости</h3>
+            <p class="card-text">
+              Ускорение загрузки страниц, сжатие ассетов и повышение баллов в Google PageSpeed Insights.
+            </p>
+            <a href="#contact" class="card-link">Подробнее &rarr;</a>
+          </article>
+
+          <article class="service-card">
+            <div class="card-icon">📱</div>
+            <h3 class="card-title">Адаптивная вёрстка</h3>
+            <p class="card-text">
+              Кроссбраузерная вёрстка по макетам Figma на CSS Grid и Flexbox по методологии Mobile First.
+            </p>
+            <a href="#contact" class="card-link">Подробнее &rarr;</a>
+          </article>
+
+        </div>
       </div>
+    </section>
 
-      <button type="submit" class="btn btn-primary">Отправить</button>
-    </form>
-  </section>
+    <!-- СЕКЦИЯ ФОРМЫ ОБРАТНОЙ СВЯЗИ -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <h2 class="section-title">Связаться с нами</h2>
+        
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name" class="form-label">Ваше имя</label>
+            <input type="text" id="name" name="name" class="form-input" placeholder="Иван Иванов" required>
+          </div>
 
-  <!-- Футер -->
-  <footer class="footer">
-    <p>© 2026 MagnaGrip. Лабораторная работа №2.</p>
-    <a href="https://github.com/VanyaDomash" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
-  </footer>
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="ivan@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Сообщение</label>
+            <textarea id="message" name="message" class="form-textarea" placeholder="Расскажите о вашей задаче..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Отправить сообщение</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ПОДВАЛ (FOOTER) -->
+    <footer class="footer-section">
+      <div class="container footer-container">
+        <p class="footer-text">&copy; 2026 DevStudio. Учебный проект дисциплины «JS и веб-разработка».</p>
+        <p class="footer-text">Лабораторная работа №2</p>
+      </div>
+    </footer>
+
+  </div>
 
 </body>
 </html>

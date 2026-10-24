@@ -1,6 +1,4 @@
-/* ==========================================================================
-   0. СБРОС И БАЗОВЫЕ НАСТРОЙКИ
-   ========================================================================== */
+
 *,
 *::before,
 *::after {
@@ -12,8 +10,8 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  color: #2b2d42;
-  background-color: #f8f9fa;
+  color: #1e293b;
+  background-color: #f8fafc;
   overflow-x: hidden;
 }
 
@@ -26,18 +24,12 @@ ul {
   list-style: none;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
 /* ==========================================================================
    1. СТРУКТУРНАЯ СЕТКА СТРАНИЦЫ (CSS GRID) — MOBILE FIRST (до 767px)
    ========================================================================== */
 .page-layout {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100%;
   grid-template-rows: auto auto 1fr auto auto;
   grid-template-areas:
     "header"
@@ -48,13 +40,12 @@ img {
   min-height: 100vh;
 }
 
-.header-section  { grid-area: header; }
-.hero-section    { grid-area: hero; }
-.services-section{ grid-area: services; }
-.contact-section { grid-area: contact; }
-.footer-section  { grid-area: footer; }
+.header-section   { grid-area: header; }
+.hero-section     { grid-area: hero; }
+.services-section { grid-area: services; }
+.contact-section  { grid-area: contact; }
+.footer-section   { grid-area: footer; }
 
-/* Общие стили контейнеров секций */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -67,17 +58,17 @@ img {
   font-weight: 700;
   text-align: center;
   margin-bottom: 24px;
-  color: #1a1a24;
+  color: #0f172a;
 }
 
 /* ==========================================================================
-   2. ШАПКА И ИНТЕРАКТИВНЫЙ БУРГЕР НА ЧИСТОМ CSS
+   2. ШАПКА И ИНТЕРАКТИВНЫЙ БУРГЕР НА ЧИСТОМ CSS (CHECKBOX HACK)
    ========================================================================== */
 .header-section {
   position: sticky;
   top: 0;
   background-color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #e2e8f0;
   z-index: 1000;
 }
 
@@ -96,14 +87,14 @@ img {
   letter-spacing: -0.5px;
 }
 
-/* Скрытый чекбокс-триггер */
+/* Скрываем сам элемент чекбокса */
 .burger-checkbox {
   position: absolute;
   opacity: 0;
   pointer-events: none;
 }
 
-/* Кнопка-иконка бургера (touch-friendly >= 44x44px) */
+/* Кнопка бургера (touch-friendly >= 44x44px) */
 .burger-btn {
   display: flex;
   flex-direction: column;
@@ -120,7 +111,7 @@ img {
   display: block;
   width: 100%;
   height: 3px;
-  background-color: #1a1a24;
+  background-color: #0f172a;
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -135,36 +126,36 @@ img {
   background-color: #ffffff;
   padding: 24px 16px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  border-top: 1px solid #edf2f7;
+  border-top: 1px solid #e2e8f0;
 }
 
 .nav-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 .nav-link {
   font-size: 1.1rem;
   font-weight: 500;
-  color: #4b5563;
-  transition: color 0.2s ease;
+  color: #475569;
   min-height: 44px;
   display: flex;
   align-items: center;
+  transition: color 0.2s ease;
 }
 
 .nav-link:hover {
   color: #2563eb;
 }
 
-/* Открытие меню по клику на бургер (Checkbox Hack) */
+/* Открытие меню при клике на бургер */
 .burger-checkbox:checked ~ .nav-menu {
   display: block;
 }
 
-/* Анимация превращения 3 полосок в крестик */
+/* Анимация превращения 3 полосок в крестик при открытии */
 .burger-checkbox:checked ~ .burger-btn .burger-line:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
@@ -182,7 +173,7 @@ img {
    ========================================================================== */
 .hero-section {
   padding: 48px 0;
-  background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
+  background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%);
 }
 
 .hero-container {
@@ -190,20 +181,20 @@ img {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 24px;
+  gap: 20px;
 }
 
 .hero-title {
   font-size: 2rem;
   font-weight: 800;
   line-height: 1.2;
-  color: #1e293b;
+  color: #0f172a;
 }
 
 .hero-desc {
   font-size: 1rem;
   color: #64748b;
-  max-width: 500px;
+  max-width: 520px;
 }
 
 .hero-btn {
@@ -217,8 +208,6 @@ img {
   color: #ffffff;
   font-weight: 600;
   border-radius: 8px;
-  border: none;
-  cursor: pointer;
   transition: background-color 0.25s ease, transform 0.25s ease;
 }
 
@@ -228,7 +217,7 @@ img {
 }
 
 /* ==========================================================================
-   4. КАРТОЧКИ УСЛУГ / ТОВАРОВ (GRID ДЛЯ СЕТКИ, FLEXBOX ДЛЯ КАРТОЧКИ)
+   4. КАРТОЧКИ УСЛУГ (CSS GRID ДЛЯ СЕТКИ, FLEXBOX ДЛЯ КАРТОЧКИ)
    ========================================================================== */
 .services-section {
   padding: 56px 0;
@@ -290,7 +279,7 @@ img {
 }
 
 /* ==========================================================================
-   5. ФОРМА ОБРАТНОЙ СВЯЗИ (FLEXBOX ВНУТРИ ПОЛЕЙ И КНОПОК)
+   5. ФОРМА ОБРАТНОЙ СВЯЗИ
    ========================================================================== */
 .contact-section {
   padding: 56px 0;
@@ -324,12 +313,12 @@ img {
 .form-input,
 .form-textarea {
   width: 100%;
-  min-height: 44px;               /* Touch-friendly размер */
+  min-height: 44px;
   padding: 10px 14px;
   border: 1.5px solid #cbd5e1;
   border-radius: 8px;
   font-size: 1rem;
-  color: #1e293b;
+  color: #0f172a;
   background-color: #ffffff;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -356,7 +345,7 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;               /* Touch-friendly размер */
+  min-height: 48px;
   padding: 12px 24px;
   background-color: #2563eb;
   color: #ffffff;
@@ -392,7 +381,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .footer-text {
@@ -409,7 +398,7 @@ img {
     margin-bottom: 32px;
   }
 
-  /* Отключаем бургер-кнопку */
+  /* Скрываем бургер-иконку */
   .burger-btn {
     display: none;
   }
