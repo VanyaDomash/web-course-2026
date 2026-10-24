@@ -3,120 +3,147 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FootyMetrics — Платформа футбольной аналитики и xG-скаутинга</title>
+  <title>ArenaTactics — Футбольная аналитика и xG-скаутинг</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="page-layout">
     
-    <!-- ШАПКА С ИНТЕРАКТИВНЫМ БУРГЕРОМ НА ЧИСТОМ CSS -->
+    <!-- ШАПКА: ОБТЕКАЕМЫЙ БАР СО СТАДИОННЫМ СКРУГЛЕНИЕМ -->
     <header class="header-section">
       <div class="container header-container">
         <a href="#" class="logo">
-          <span class="logo-accent">⚡</span> Footy<span class="logo-highlight">Metrics</span>
+          <span class="logo-ball">⚽</span> Arena<span class="logo-glow">Tactics</span>
         </a>
 
-        <!-- Скрытый чекбокс-триггер для меню -->
-        <input type="checkbox" id="burger-toggle" class="burger-checkbox" aria-label="Переключатель навигации">
+        <!-- Скрытый чекбокс-переключатель бургера -->
+        <input type="checkbox" id="burger-toggle" class="burger-checkbox" aria-label="Открыть мобильное меню">
 
-        <!-- Кнопка-гамбургер -->
-        <label for="burger-toggle" class="burger-btn" aria-label="Открыть меню">
+        <!-- Кнопка-гамбургер (touch-friendly 44x44px) -->
+        <label for="burger-toggle" class="burger-btn" aria-label="Кнопка меню">
           <span class="burger-line"></span>
           <span class="burger-line"></span>
           <span class="burger-line"></span>
         </label>
 
-        <!-- Навигация -->
+        <!-- Навигационное меню -->
         <nav class="nav-menu">
           <ul class="nav-list">
-            <li><a href="#hero" class="nav-link">Главная</a></li>
-            <li><a href="#modules" class="nav-link">Модули данных</a></li>
-            <li><a href="#demo" class="nav-link">Запросить доступ</a></li>
+            <li><a href="#hero" class="nav-link">Арена</a></li>
+            <li><a href="#stats" class="nav-link">Метрики</a></li>
+            <li><a href="#modules" class="nav-link">Модули</a></li>
+            <li><a href="#contact" class="nav-link">Скаутинг</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <!-- ГЕРОЙ-СЕКЦИЯ (HERO) -->
+    <!-- ГЕРОЙ-СЕКЦИЯ: КУПОЛ СТАДИОНА (HERO DOME) -->
     <section class="hero-section" id="hero">
       <div class="container hero-container">
-        <div class="hero-badge">⚽ Big Data & AI в футболе</div>
-        <h1 class="hero-title">Умная футбольная аналитика нового поколения</h1>
+        <div class="ball-badge">
+          <span class="pulse-dot"></span> UEFA & FIFA Data Streams
+        </div>
+        <h1 class="hero-title">Тактическая аналитика на скорости матча</h1>
         <p class="hero-desc">
-          Комплексные метрики ожидаемых голов (xG), карты передач (xP), тепловые зоны давления (PPDA) и глубокий скаутинг игроков топ-5 европейских лиг в реальном времени.
+          Компьютерное зрение и нейросети анализируют каждое касание мяча, вектор прессинга и вероятность гола в 120 лигах планеты.
         </p>
-        <a href="#demo" class="hero-btn">Получить демо-доступ</a>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Запустить радар</a>
+          <a href="#modules" class="btn-secondary">Обзор моделей</a>
+        </div>
       </div>
     </section>
 
-    <!-- СЕКЦИЯ АНАЛИТИЧЕСКИХ МОДУЛЕЙ -->
+    <!-- НОВАЯ СЕКЦИЯ: ТУРНИРНЫЕ СФЕРИЧЕСКИЕ ИНДИКАТОРЫ (KPI) -->
+    <section class="stats-section" id="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-sphere">
+            <span class="stat-value">98.4%</span>
+            <span class="stat-label">Точность xG-моделей</span>
+          </div>
+          <div class="stat-sphere">
+            <span class="stat-value">45+</span>
+            <span class="stat-label">Чемпионатов в Real-time</span>
+          </div>
+          <div class="stat-sphere">
+            <span class="stat-value">1.2M</span>
+            <span class="stat-label">Разобранных матчей</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- СЕКЦИЯ МОДУЛЕЙ С ГЕОМЕТРИЕЙ ФУТБОЛЬНОГО МЯЧА -->
     <section class="services-section" id="modules">
       <div class="container">
-        <h2 class="section-title">Аналитические инструменты</h2>
+        <h2 class="section-title">Аналитические ядра</h2>
         <div class="services-grid">
           
           <article class="service-card">
-            <div class="card-icon">🎯</div>
-            <h3 class="card-title">Модели xG и xGOT</h3>
+            <div class="card-sphere-icon">🎯</div>
+            <h3 class="card-title">Модель xG & xA 3.0</h3>
             <p class="card-text">
-              Оценка качества созданных моментов и точности ударов с учётом позиции вратаря, плотности опеки и типа передачи.
+              Математический расчёт опасности момента с учётом плотности защитного блока, рабочей ноги и траектории полёта мяча.
             </p>
-            <a href="#demo" class="card-link">Исследовать метрику &rarr;</a>
+            <a href="#contact" class="card-link">Смотреть демо &rarr;</a>
           </article>
 
           <article class="service-card">
-            <div class="card-icon">📊</div>
-            <h3 class="card-title">Радары и скаутинг игроков</h3>
+            <div class="card-sphere-icon">🧭</div>
+            <h3 class="card-title">Карта пасовых линий (xP)</h3>
             <p class="card-text">
-              Сравнение перцентилей футболистов по 45 параметрам: прогрессивные передачи, отборы в финальной трети и успешный дриблинг.
+              Идентификация разрезных передач, выходов из-под высокого прессинга и зон наибольшего продвижения мяча (Field Tilt).
             </p>
-            <a href="#demo" class="card-link">Исследовать метрику &rarr;</a>
+            <a href="#contact" class="card-link">Смотреть демо &rarr;</a>
           </article>
 
           <article class="service-card">
-            <div class="card-icon">🔥</div>
-            <h3 class="card-title">Тепловые карты и прессинг</h3>
+            <div class="card-sphere-icon">🛡️</div>
+            <h3 class="card-title">Радар скаута 360°</h3>
             <p class="card-text">
-              Визуализация компактности командных блоков, интенсивности прессинга (PPDA) и направлений продвижения мяча (Field Tilt).
+              Автоматический поиск аналогов футболистов на основе 70 статистических перцентилей под игровую модель вашего тренера.
             </p>
-            <a href="#demo" class="card-link">Исследовать метрику &rarr;</a>
+            <a href="#contact" class="card-link">Смотреть демо &rarr;</a>
           </article>
 
         </div>
       </div>
     </section>
 
-    <!-- СЕКЦИЯ ЗАПРОСА ДЕМО-ДОСТУПА (ФОРМА) -->
-    <section class="contact-section" id="demo">
+    <!-- СЕКЦИЯ ОБРАТНОЙ СВЯЗИ: СТАДИОННАЯ ОБТЕКАЕМАЯ ФОРМА -->
+    <section class="contact-section" id="contact">
       <div class="container">
-        <h2 class="section-title">Запросить доступ для клуба или скаута</h2>
+        <h2 class="section-title">Запросить доступ в скаут-хаб</h2>
         
         <form class="contact-form">
           <div class="form-group">
-            <label for="name" class="form-label">Ваше имя / Должность</label>
-            <input type="text" id="name" name="name" class="form-input" placeholder="Александр (Спортивный аналитик)" required>
+            <label for="name" class="form-label">Ваше имя / Клуб</label>
+            <input type="text" id="name" name="name" class="form-input" placeholder="Сергей (ФК Динамо)" required>
           </div>
 
           <div class="form-group">
-            <label for="email" class="form-label">Рабочий Email</label>
-            <input type="email" id="email" name="email" class="form-input" placeholder="analyst@footballclub.com" required>
+            <label for="email" class="form-label">Корпоративный Email</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="analyst@stadium.pro" required>
           </div>
 
           <div class="form-group">
-            <label for="message" class="form-label">Интересующие лиги и задачи</label>
-            <textarea id="message" name="message" class="form-textarea" placeholder="Укажите лиги (РПЛ, АПЛ, Серия А) или необходимые API-потоки данных..." required></textarea>
+            <label for="message" class="form-label">Задачи скаутинга</label>
+            <textarea id="message" name="message" class="form-textarea" placeholder="Укажите лиги (АПЛ, РПЛ, Серия А) или нужный формат выгрузки данных..." required></textarea>
           </div>
 
-          <button type="submit" class="btn-submit">Отправить заявку на платформу</button>
+          <button type="submit" class="btn-submit">Подключить аналитику</button>
         </form>
       </div>
     </section>
 
-    <!-- ПОДВАЛ (FOOTER) -->
+    <!-- ПОДВАЛ -->
     <footer class="footer-section">
       <div class="container footer-container">
-        <p class="footer-text">&copy; 2026 FootyMetrics Analytics Hub. Все права защищены.</p>
+        <div class="footer-logo">⚽ ArenaTactics Hub</div>
+        <p class="footer-text">&copy; 2026 Футбольная аналитическая лаборатория. Все права защищены.</p>
         <p class="footer-text">Лабораторная работа №2</p>
       </div>
     </footer>

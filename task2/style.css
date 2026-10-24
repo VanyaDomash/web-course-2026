@@ -1,5 +1,5 @@
 /* ==========================================================================
-   0. СБРОС И БАЗОВЫЕ НАСТРОЙКИ (DARK FOOTBALL / ANALYTICS THEME)
+   0. СБРОС И БАЗОВЫЕ НАСТРОЙКИ (DARK FOOTBALL STADIUM THEME)
    ========================================================================== */
 *,
 *::before,
@@ -12,8 +12,8 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
-  color: #e2e8f0;
-  background-color: #0b0f19;
+  color: #f1f5f9;
+  background-color: #060913; /* Глубокий ночной газон */
   overflow-x: hidden;
 }
 
@@ -32,18 +32,21 @@ ul {
 .page-layout {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: auto auto 1fr auto auto;
+  grid-template-rows: auto auto auto 1fr auto auto;
   grid-template-areas:
     "header"
     "hero"
+    "stats"
     "services"
     "contact"
     "footer";
   min-height: 100vh;
+  gap: 16px;
 }
 
 .header-section   { grid-area: header; }
 .hero-section     { grid-area: hero; }
+.stats-section    { grid-area: stats; }
 .services-section { grid-area: services; }
 .contact-section  { grid-area: contact; }
 .footer-section   { grid-area: footer; }
@@ -56,23 +59,26 @@ ul {
 }
 
 .section-title {
-  font-size: 1.75rem;
+  font-size: 1.85rem;
   font-weight: 800;
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   color: #ffffff;
   letter-spacing: -0.5px;
 }
 
 /* ==========================================================================
-   2. ШАПКА И ИНТЕРАКТИВНЫЙ БУРГЕР НА ЧИСТОМ CSS (CHECKBOX HACK)
+   2. ШАПКА: СТАДИОННАЯ ОБТЕКАЕМАЯ КАПСУЛА И БУРГЕР НА ЧИСТОМ CSS
    ========================================================================== */
 .header-section {
   position: sticky;
-  top: 0;
-  background-color: rgba(11, 15, 25, 0.95);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid #1e293b;
+  top: 12px;
+  margin: 0 12px;
+  border-radius: 40px; /* Скругление капсулы */
+  background: rgba(13, 20, 36, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   z-index: 1000;
 }
 
@@ -81,18 +87,26 @@ ul {
   align-items: center;
   justify-content: space-between;
   height: 64px;
+  padding: 0 20px;
   position: relative;
 }
 
 .logo {
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: -0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.logo-highlight {
-  color: #10b981; /* Электрический зеленый акцент */
+.logo-ball {
+  font-size: 1.4rem;
+  filter: drop-shadow(0 0 6px rgba(34, 197, 94, 0.6));
+}
+
+.logo-glow {
+  color: #22c55e; /* Электрический салатовый цвет газона */
 }
 
 /* Скрытый чекбокс-триггер */
@@ -107,34 +121,38 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 6px;
+  align-items: center;
+  gap: 5px;
   width: 44px;
   height: 44px;
-  padding: 8px;
+  border-radius: 50%; /* Сферическая кнопка */
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
   cursor: pointer;
   z-index: 1001;
 }
 
 .burger-line {
   display: block;
-  width: 100%;
-  height: 3px;
-  background-color: #10b981;
-  border-radius: 2px;
+  width: 20px;
+  height: 2.5px;
+  background-color: #22c55e;
+  border-radius: 4px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Мобильное выпадающее меню */
+/* Мобильное всплывающее меню */
 .nav-menu {
   display: none;
   position: absolute;
-  top: 64px;
+  top: 72px;
   left: 0;
   width: 100%;
-  background-color: #0f172a;
+  background: #0d1424;
+  border-radius: 28px; /* Скругление меню */
   padding: 24px 16px;
-  border-top: 1px solid #1e293b;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
 }
 
 .nav-list {
@@ -148,24 +166,27 @@ ul {
   font-size: 1.05rem;
   font-weight: 600;
   color: #94a3b8;
+  padding: 8px 16px;
+  border-radius: 20px;
   min-height: 44px;
   display: flex;
   align-items: center;
-  transition: color 0.2s ease;
+  transition: color 0.25s ease, background-color 0.25s ease;
 }
 
 .nav-link:hover {
-  color: #10b981;
+  color: #22c55e;
+  background-color: rgba(34, 197, 94, 0.1);
 }
 
-/* Открытие меню по клику на бургер */
+/* Checkbox Hack для раскрытия */
 .burger-checkbox:checked ~ .nav-menu {
   display: block;
 }
 
-/* Анимация превращения 3 полосок в крестик */
+/* Анимация полосок бургера в крестик */
 .burger-checkbox:checked ~ .burger-btn .burger-line:nth-child(1) {
-  transform: translateY(9px) rotate(45deg);
+  transform: translateY(7.5px) rotate(45deg);
 }
 
 .burger-checkbox:checked ~ .burger-btn .burger-line:nth-child(2) {
@@ -173,16 +194,19 @@ ul {
 }
 
 .burger-checkbox:checked ~ .burger-btn .burger-line:nth-child(3) {
-  transform: translateY(-9px) rotate(-45deg);
+  transform: translateY(-7.5px) rotate(-45deg);
 }
 
 /* ==========================================================================
-   3. ГЕРОЙ-СЕКЦИЯ (HERO)
+   3. ГЕРОЙ-СЕКЦИЯ: КУПОЛ СТАДИОНА (HERO DOME)
    ========================================================================== */
 .hero-section {
-  padding: 56px 0;
-  background: radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.12) 0%, rgba(11, 15, 25, 0.8) 75%);
-  border-bottom: 1px solid #1e293b;
+  padding: 56px 16px;
+  margin: 0 12px;
+  border-radius: 48px; /* Купольное скругление */
+  background: radial-gradient(circle at 50% 15%, rgba(34, 197, 94, 0.18) 0%, #0a0f1d 80%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 80px rgba(34, 197, 94, 0.06);
 }
 
 .hero-container {
@@ -193,58 +217,138 @@ ul {
   gap: 20px;
 }
 
-.hero-badge {
-  display: inline-block;
-  padding: 6px 14px;
+.ball-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 9999px; /* Форма таблетки/капсулы */
   font-size: 0.85rem;
   font-weight: 700;
-  color: #10b981;
-  background-color: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  border-radius: 20px;
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.35);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #22c55e;
 }
 
 .hero-title {
   font-size: 2.1rem;
-  font-weight: 800;
+  font-weight: 900;
   line-height: 1.25;
   color: #ffffff;
+  max-width: 650px;
 }
 
 .hero-desc {
   font-size: 1rem;
   color: #94a3b8;
-  max-width: 580px;
+  max-width: 540px;
 }
 
-.hero-btn {
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 320px;
+  margin-top: 8px;
+}
+
+.btn-primary,
+.btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 200px;
   min-height: 48px;
-  padding: 12px 28px;
-  background-color: #10b981;
-  color: #0b0f19;
+  padding: 12px 24px;
+  border-radius: 9999px; /* Сферические кнопки */
   font-weight: 700;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  font-size: 0.95rem;
+  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.hero-btn:hover {
-  background-color: #059669;
+.btn-primary {
+  background: #22c55e;
+  color: #060913;
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.35);
+}
+
+.btn-primary:hover {
+  background: #16a34a;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.5);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   4. КАРТОЧКИ МОДУЛЕЙ (CSS GRID ДЛЯ СЕТКИ, FLEXBOX ДЛЯ КАРТОЧЕК)
+   4. СФЕРИЧЕСКИЕ ИНДИКАТОРЫ МЕТРИК (STATS SPHERES)
+   ========================================================================== */
+.stats-section {
+  padding: 24px 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.stat-sphere {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 20px;
+  background: radial-gradient(circle at 30% 30%, #152238 0%, #0b1220 100%);
+  border-radius: 40px; /* Обтекаемая форма */
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.stat-sphere:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: #22c55e;
+}
+
+.stat-value {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #22c55e;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   5. КАРТОЧКИ МОДУЛЕЙ: ФУТБОЛЬНЫЙ СРЕЗ (BALL-PATCH CARDS)
    ========================================================================== */
 .services-section {
-  padding: 60px 0;
+  padding: 48px 0;
 }
 
 .services-grid {
@@ -257,31 +361,40 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #131b2e;
-  padding: 28px;
-  border-radius: 12px;
-  border: 1px solid #1e293b;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(145deg, #0e1628 0%, #090e1c 100%);
+  padding: 32px 24px;
+  /* Асимметричное скругление в стиле панелей футбольного мяча */
+  border-radius: 40px 12px 40px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Плавный переход и масштабирование по требованию п.6 */
+/* Плавный переход и увеличение карточки при hover по требованию п.6 */
 .service-card:hover {
   transform: translateY(-4px) scale(1.02);
-  border-color: #10b981;
-  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15);
+  border-color: #22c55e;
+  box-shadow: 0 16px 36px rgba(34, 197, 94, 0.18);
 }
 
-.card-icon {
-  font-size: 2.2rem;
-  margin-bottom: 16px;
+.card-sphere-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%; /* Сферическая иконка */
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
 }
 
 .card-title {
   font-size: 1.3rem;
-  margin-bottom: 10px;
+  font-weight: 800;
   color: #ffffff;
-  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .card-text {
@@ -292,8 +405,8 @@ ul {
 }
 
 .card-link {
-  font-weight: 600;
-  color: #10b981;
+  font-weight: 700;
+  color: #22c55e;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -301,29 +414,32 @@ ul {
 }
 
 .card-link:hover {
-  color: #34d399;
+  color: #4ade80;
   gap: 10px;
 }
 
 /* ==========================================================================
-   5. ФОРМА ОБРАТНОЙ СВЯЗИ
+   6. ФОРМА ОБРАТНОЙ СВЯЗИ: СТАДИОННАЯ ЧАША
    ========================================================================== */
 .contact-section {
-  padding: 60px 0;
-  background-color: #0e1424;
-  border-top: 1px solid #1e293b;
+  padding: 56px 16px;
+  margin: 0 12px;
+  border-radius: 48px; /* Закруглённая форма арены */
+  background: radial-gradient(circle at 50% 100%, rgba(34, 197, 94, 0.12) 0%, #0a0f1d 80%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background-color: #131b2e;
-  padding: 28px 20px;
-  border-radius: 12px;
-  border: 1px solid #1e293b;
-  max-width: 600px;
+  background: #0d1527;
+  padding: 32px 20px;
+  border-radius: 36px; /* Обтекаемая внутренняя форма */
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  max-width: 580px;
   margin: 0 auto;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 .form-group {
@@ -334,20 +450,20 @@ ul {
 
 .form-label {
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #cbd5e1;
 }
 
 .form-input,
 .form-textarea {
   width: 100%;
-  min-height: 44px;
-  padding: 12px 16px;
-  border: 1.5px solid #2d3b55;
-  border-radius: 8px;
+  min-height: 48px;
+  padding: 12px 20px;
+  border-radius: 24px; /* Круглые поля ввода */
+  border: 1.5px solid #1e293b;
   font-size: 1rem;
   color: #ffffff;
-  background-color: #0b0f19;
+  background-color: #060913;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -358,80 +474,87 @@ ul {
 
 .form-textarea {
   min-height: 120px;
+  border-radius: 20px;
   resize: vertical;
 }
 
 /* Состояния :hover и :focus */
 .form-input:hover,
 .form-textarea:hover {
-  border-color: #475569;
+  border-color: #334155;
 }
 
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: #10b981;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
 }
 
 .btn-submit {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  padding: 12px 24px;
-  background-color: #10b981;
-  color: #0b0f19;
+  min-height: 52px;
+  padding: 14px 28px;
+  border-radius: 9999px; /* Сферическая кнопка отправки */
+  background: #22c55e;
+  color: #060913;
   border: none;
-  border-radius: 8px;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.35);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-submit:hover {
-  background-color: #059669;
-  transform: translateY(-1px);
+  background: #16a34a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.5);
 }
 
 .btn-submit:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.4);
 }
 
 /* ==========================================================================
-   6. ФУТЕР
+   7. ПОДВАЛ
    ========================================================================== */
 .footer-section {
-  background-color: #070a12;
-  color: #64748b;
-  padding: 32px 0;
+  padding: 40px 16px 24px;
   text-align: center;
-  border-top: 1px solid #1e293b;
 }
 
 .footer-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+}
+
+.footer-logo {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #22c55e;
 }
 
 .footer-text {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  color: #64748b;
 }
 
 /* ==========================================================================
-   7. ВТОРАЯ КОНТРОЛЬНАЯ ТОЧКА: ПЛАНШЕТ (768px – 1199px)
+   8. ВТОРАЯ ТОЧКА АДАПТИВА: ПЛАНШЕТ (768px – 1199px)
    ========================================================================== */
 @media (min-width: 768px) {
   .section-title {
-    font-size: 2.2rem;
+    font-size: 2.3rem;
     margin-bottom: 36px;
   }
 
-  /* Скрываем бургер-иконку */
+  /* Скрываем мобильный бургер */
   .burger-btn {
     display: none;
   }
@@ -443,13 +566,13 @@ ul {
     width: auto;
     padding: 0;
     box-shadow: none;
-    border-top: none;
-    background-color: transparent;
+    border: none;
+    background: transparent;
   }
 
   .nav-list {
     flex-direction: row;
-    gap: 28px;
+    gap: 12px;
   }
 
   .nav-link {
@@ -457,14 +580,26 @@ ul {
     min-height: auto;
   }
 
-  /* Сетка карточек: 2 колонки */
+  .hero-actions {
+    flex-direction: row;
+    justify-content: center;
+    max-width: none;
+  }
+
+  /* Сетка сфер KPI: 3 в ряд */
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  /* Сетка карточек: 2 колонки на планшете */
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
 
   .contact-form {
-    padding: 36px 32px;
+    padding: 40px 36px;
   }
 
   .footer-container {
@@ -474,33 +609,39 @@ ul {
 }
 
 /* ==========================================================================
-   8. ТРЕТЬЯ КОНТРОЛЬНАЯ ТОЧКА: ДЕСКТОП (от 1200px)
+   9. ТРЕТЬЯ ТОЧКА АДАПТИВА: ДЕСКТОП (от 1200px)
    ========================================================================== */
 @media (min-width: 1200px) {
   .hero-section {
-    padding: 80px 0;
+    padding: 88px 32px;
+    margin: 0 auto;
+    max-width: 1200px;
+    border-radius: 64px; /* Глубокое купольное скругление */
   }
 
   .hero-title {
-    font-size: 3rem;
+    font-size: 3.2rem;
   }
 
   .hero-desc {
     font-size: 1.15rem;
-    max-width: 680px;
+    max-width: 650px;
   }
 
-  /* Сетка карточек: 3 колонки */
+  /* Сетка карточек: 3 колонки на десктопе */
   .services-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
   }
 
   .services-section {
-    padding: 88px 0;
+    padding: 80px 0;
   }
 
   .contact-section {
-    padding: 88px 0;
+    padding: 88px 32px;
+    margin: 0 auto;
+    max-width: 1200px;
+    border-radius: 64px;
   }
 }
